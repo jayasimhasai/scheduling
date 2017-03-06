@@ -47,10 +47,6 @@ int main(int argc, char const *argv[])
 	      printf("message from father: creating program %s\n", argv[i]);
 	     
 	      pid= fork();
-		arg.pid=pid;
-		arg.name=(char*) argv[i];
-	      Enqueue(arg);
-	     
 	      if(pid==0)
 		{ 
 		   execl(argv[i], argv[i], NULL); 
@@ -58,7 +54,12 @@ int main(int argc, char const *argv[])
 		   exit(0);
 		   
 		}
-
+		
+		arg.pid=pid;
+		arg.name=(char*) argv[i];
+	        arg.val = atoi(&argv[i][1]);
+		printf("%d\n",atoi(&argv[i][1]));
+		insert(arg);
 	    }
 
 	sleep(1);

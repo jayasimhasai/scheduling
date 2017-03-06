@@ -48,7 +48,7 @@ int main(int argc, char const *argv[])
 	     
 	      pid= fork();
 		arg.pid=pid;
-		arg.name=argv[i];
+		arg.name=(char*) argv[i];
 	      Enqueue(arg);
 	     
 	      if(pid==0)

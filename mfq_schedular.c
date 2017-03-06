@@ -129,7 +129,7 @@ int pid,i,qt;
 	     
 	      pid= fork();
 		arg.pid=pid;
-		arg.name=argv[i];
+		arg.name=(char*) argv[i];
 		arg.level=1;
 	      Enqueue(arg);
 	     
